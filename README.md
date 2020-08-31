@@ -10,5 +10,5 @@ Para compilarlo es necesario correr el comando:
 * ncurses es utilizada para crear la interfaz de usuario
 
 Para correr el programa se pueden utilizar dos posibles comandos:
-*`./sort` -> simplemente corre el programa, escribiendo en pantalla el tiempo por thread y el tiempo final.
-*`./sort -v` -> corre el programa imprimiendo el arreglo original y el arreglo ordenado
+* `./sort` -> simplemente corre el programa, escribiendo en pantalla el tiempo por thread y el tiempo final.
+* `./sort -v` -> corre el programa imprimiendo el arreglo original y el arreglo ordenado
