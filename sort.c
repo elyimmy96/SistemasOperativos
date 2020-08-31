@@ -13,12 +13,15 @@ void mergeSort(int arr[], int l, int r);
 
 int *arr;
 
-int main() {
+int main(int argc, char const *argv[]) {
+  int verbose = 0;
   int cpus = num_cpus();
   int highlight = 1;
   int choice = 0;
 	int c;
   int tam;
+
+  if (argc == 2 && argv[1][1] == 'v') verbose = 1;
 
   initscr();
 	clear();
@@ -84,15 +87,18 @@ int main() {
   srand(time(NULL));
   for(int i = 0; i < tam; i++)
     arr[i] = rand() % 5000;
-  // for(int i = 0; i < tam; i++) {
-  //   printf("%d", arr[i]);
-  //   if((i+1) % 10 == 0){
-  //      printf("\n");
-  //   } else {
-  //     printf("\t");
-  //   }
-  // }
-  // printf("\n");
+  if(verbose) {
+    printf("Original:\n");
+    for(int i = 0; i < tam; i++) {
+      printf("%d", arr[i]);
+      if((i+1) % 10 == 0){
+         printf("\n");
+      } else {
+        printf("\t");
+      }
+    }
+    printf("\n");
+  }
   clock_t tic =  0.0;
 	clock_t toc = 0.0;
   clock_t tic2 =  0.0;
@@ -123,14 +129,17 @@ int main() {
   printf("Tiempo sort final: %lf seconds.\n", time_2);
   toc = clock();
 	double elapsedTime = (double)(toc-tic) * 1000.0 / CLOCKS_PER_SEC;
-  // for(int i = 0; i < tam; i++) {
-  //   printf("%d", arr[i]);
-  //   if((i+1) % 10 == 0){
-  //      printf("\n");
-  //   } else {
-  //     printf("\t");
-  //   }
-  // }
+  if(verbose) {
+    printf("Ordenado:\n");
+    for(int i = 0; i < tam; i++) {
+      printf("%d", arr[i]);
+      if((i+1) % 10 == 0){
+         printf("\n");
+      } else {
+        printf("\t");
+      }
+    }
+  }
   printf("\nElapsed time: %lf seconds\n", elapsedTime);
   return 0;
 }
