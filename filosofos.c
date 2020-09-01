@@ -6,7 +6,6 @@
 #include <unistd.h>
 
 int numFilosofos = 5;
-int tenedores[numFilosofos];
 sem_t sem;
 
 void* comer(void *param);
