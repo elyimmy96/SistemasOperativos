@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <semaphore.h>
-##include <unistd.h>
+#include <unistd.h>
 
 int numFilosofos = 5;
 int tenedores[numFilosofos];
