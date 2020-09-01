@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
   int par[numFilosofos];
   pthread_attr_init(&attr);
   for(int i = 0; i < numFilosofos; i++) {
-    pthread_create(&threads[i], &attr, sorter, i);
+    pthread_create(&threads[i], &attr, sorter, &i);
   }
   sem_init(&sem, 0, 4);
 
