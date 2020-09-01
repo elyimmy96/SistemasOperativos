@@ -8,14 +8,16 @@
 int numFilosofos = 5;
 sem_t sem;
 
-void* comer(int num);
+void* comer(void *param);
 
 int main(int argc, char *argv[]) {
   pthread_t threads[numFilosofos];
+  int par[numFilosofos];
   pthread_attr_t attr;
   pthread_attr_init(&attr);
   for(int i = 0; i < numFilosofos; i++) {
-    pthread_create(&threads[i], &attr, comer, i);
+    par[i] = i+1;
+    pthread_create(&threads[i], &attr, comer, par[i]);
   }
   sem_init(&sem, 0, 4);
 
@@ -26,7 +28,9 @@ int main(int argc, char *argv[]) {
   sem_destroy(&sem);
 
 }
-void* comer(int num) {
+void* comer(void *param) {
+  int *par= (int *)param;
+  int num = par[0];
   printf("Filosofo %d intentando comer.\n", num);
   sem_wait(&sem);
   printf("Filosofo %d comiendo.\n", num);
