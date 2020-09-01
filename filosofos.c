@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
 
 }
 void* comer(void *param) {
-  int *par= (int *)param;
+  int *num= (int *)param;
   printf("Filosofo %d intentando comer.\n", num);
   sem_wait(&sem);
   printf("Filosofo %d comiendo.\n", num);
