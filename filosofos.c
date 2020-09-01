@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   pthread_attr_init(&attr);
   for(int i = 0; i < numFilosofos; i++) {
     par[i] = i+1;
-    pthread_create(&threads[i], &attr, comer, par[i]);
+    pthread_create(&threads[i], &attr, comer, &par[i]);
   }
   sem_init(&sem, 0, 4);
 
@@ -30,7 +30,6 @@ int main(int argc, char *argv[]) {
 }
 void* comer(void *param) {
   int *par= (int *)param;
-  int num = par[0];
   printf("Filosofo %d intentando comer.\n", num);
   sem_wait(&sem);
   printf("Filosofo %d comiendo.\n", num);
