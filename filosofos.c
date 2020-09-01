@@ -33,7 +33,7 @@ void* comer(void *param) {
   printf("Filosofo %d intentando comer.\n", num);
   sem_wait(&sem);
   printf("Filosofo %d comiendo.\n", num);
-  sleep(2);
+  sleep(10);
   printf("Filosofo %d termino de comer.\n", num);
   sem_post(&sem);
   pthread_exit(0);
