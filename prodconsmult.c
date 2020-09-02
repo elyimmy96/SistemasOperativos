@@ -42,6 +42,7 @@ void *consumer(void *cno)
         out = (out+1)%BufferSize;
         pthread_mutex_unlock(&mutex);
         sem_post(&empty);
+        sleep(2);
     }
 }
 
