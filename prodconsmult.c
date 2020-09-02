@@ -28,8 +28,12 @@ int main(int argc, char *argv[]) {
   for (int i = 0; i < 5; i++) {
     pthread_create(&threadConsume[i], &attr, consume, &a[i]);
   }
-  pthread_join(threadProduce, NULL);
-  pthread_join(threadConsume, NULL);
+  for (int i = 0; i < 5; i++) {
+    pthread_join(threadProduce[i], NULL);
+  }
+  for (int i = 0; i < 5; i++) {
+    pthread_join(threadConsume[i], NULL);
+  }
 
   sem_destroy(&lleno);
   sem_destroy(&vacio);
