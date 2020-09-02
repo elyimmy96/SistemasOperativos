@@ -16,9 +16,9 @@ int main(int argc, char *argv[]) {
   pthread_attr_t attr;
   pthread_attr_init(&attr);
 
-  sem_init(&lleno, 0, 1);
-  sem_init(&vacio, 0, 1);
-  sem_init(&mutex, 0, 4);
+  sem_init(&lleno, 0, 4);
+  sem_init(&vacio, 0, 4);
+  sem_init(&mutex, 0, 1);
 
   pthread_create(&threadProduce, &attr, produce, NULL);
   pthread_create(&threadConsume, &attr, consume, NULL);
