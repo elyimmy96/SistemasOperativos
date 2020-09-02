@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 sem_t lleno, vacio, mutex;
-int datos[4];
+int datos[5];
 
 void* produce();
 void *consume();
